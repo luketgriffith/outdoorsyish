@@ -14,6 +14,7 @@ export default {
         });
     });
   },
+
   login: (user) => {
     return new Promise((resolve, reject) => {
       superagent
@@ -24,5 +25,16 @@ export default {
           err ? reject(err) : resolve(res.body);
         });
     });
+  },
+
+  logout: () => {
+    return new Promise((resolve, reject) => {
+      superagent
+        .get("http://localhost:5000/logout")
+        .set('Content-Type', 'application/json')
+        .end(function(err, res) {
+          err ? reject(err) : resolve(res.body);
+        });
+    })
   }
 }  

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 //components
 import SignUp from './components/signup';
 import Login from './components/login';
+import Logout  from './components/logout';
 
 class Home extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Home extends Component {
     this.loginEmail = this.loginEmail.bind(this);
     this.loginPw = this.loginPw.bind(this);
     this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   emailInput(e){
@@ -71,6 +73,13 @@ class Home extends Component {
     });
   }
 
+  logout() {
+    let { dispatch } = this.props;
+    dispatch({
+      type: 'LOGOUT'
+    })
+  }
+
   
   render() {
     return( 
@@ -87,6 +96,10 @@ class Home extends Component {
           login={this.login}
         />
 
+        <Logout
+          logout={this.logout}
+        />
+
       </div>)
   }
 }
@@ -95,7 +108,8 @@ function mapStateToProps(state) {
   console.log(state);
   return {
     signup: state.HomeReducer.signup,
-    login: state.HomeReducer.login
+    login: state.HomeReducer.login,
+    user: state.HomeReducer.user
   }
 }
 

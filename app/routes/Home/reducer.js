@@ -8,6 +8,10 @@ const initialState = {
   login: {
     email: '',
     password: ''
+  },
+  user: {
+    email: '',
+    _id: ''
   }
 };
 
