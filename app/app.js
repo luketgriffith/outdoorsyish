@@ -14,6 +14,7 @@ import createSagaMiddleware from 'redux-saga';
 
 // Import containers for routing
 import Home from './routes/Home/index';
+import Profile from './routes/Profile/index';
 
 // Import global navigation components
 
@@ -42,6 +43,7 @@ render(
       // onUpdate={authenticateUser(store.dispatch)}>
       >
         <Route path="/" component={Home}/>
+        <Route path="/profile/:profileId" component={Profile} />
     
     </Router>
   </Provider>,

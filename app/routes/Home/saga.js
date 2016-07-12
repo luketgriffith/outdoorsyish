@@ -1,13 +1,18 @@
 import { takeEvery, takeLatest } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 import Api from '../../services/api';
+import { browserHistory } from 'react-router';
 
 
 function* signUp(action) {
   try {
     console.log('sagassssss', action)
-    yield call(Api.signUp, action.payload)
-    yield alert('Success!')
+    const profile = yield call(Api.signUp, action.payload)
+    yield put({ 
+      type: 'LOGIN_SUCCESS',
+      user: profile
+    });
+    yield browserHistory.push('/profile/' + profile._id)
   } catch(err) {
     console.log('the error:', err);
     alert(err)
@@ -17,8 +22,13 @@ function* signUp(action) {
 function* login(action) {
   try {
     console.log('login saga', action)
-    yield call(Api.login, action.payload)
-    yield alert('yayyyy you logged in dawg');
+    const profile = yield call(Api.login, action.payload)
+    // yield alert('yayyyy you logged in dawg');
+    yield put({ 
+      type: 'LOGIN_SUCCESS',
+      user: profile
+    });
+    yield browserHistory.push('/profile/' + profile._id)
   } catch(err) {
     alert(err);
   }
@@ -28,6 +38,9 @@ function* logout(action) {
   try{
     yield call(Api.logout);
     yield alert('you is now logged out');
+    yield({ 
+      type: 'LOGOUT'
+    });
   } catch(err) {
     alert(err);
   }
