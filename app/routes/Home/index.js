@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import SignUp from './components/signup';
 import Login from './components/login';
 import Logout  from './components/logout';
+import LocationList from './components/locations';
 
 class Home extends Component {
   constructor(props) {
@@ -108,6 +109,11 @@ class Home extends Component {
           logout={this.logout}
         />
 
+        <LocationList 
+          locations={this.props.locations}
+        />
+        
+
       </div>)
   }
 }
@@ -117,7 +123,8 @@ function mapStateToProps(state) {
   return {
     signup: state.HomeReducer.signup,
     login: state.HomeReducer.login,
-    user: state.HomeReducer.user
+    user: state.HomeReducer.user,
+    locations: state.HomeReducer.locations
   }
 }
 

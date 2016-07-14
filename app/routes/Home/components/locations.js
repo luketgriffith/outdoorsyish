@@ -5,9 +5,11 @@ class LocationList extends Component {
     return(
         <ul>
           {this.props.locations.map((location) => {
-            return <li>{location.name}</li>
+            return <li key={location._id}>{location.location}</li>
           })}
         </ul>
       )
   }
 }
+
+export default LocationList;
