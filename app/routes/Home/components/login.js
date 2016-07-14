@@ -8,7 +8,7 @@ class Login extends Component {
           <form onSubmit={this.props.login}>
             <input type="text" onChange={this.props.loginEmail} placeholder="Email"/>
             <input type="password" onChange={this.props.loginPw} placeholder="Password"/>
-            <button type="submit">Join</button>
+            <button type="submit">Log In</button>
           </form>
         </div>
       )

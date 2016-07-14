@@ -46,6 +46,18 @@ function* logout(action) {
   }
 }
 
+function* getLocations(action) {
+  try{
+    const locations = yield call(Api.getLocations);
+    yield put({ 
+      type: 'GET_LOCATIONS_SUCCESS',
+      locations: locations
+    });
+  } catch(err) {
+    
+  }
+}
+
 export function* watchSignup() {
   yield takeEvery('SIGN_UP', signUp);
 }
@@ -56,12 +68,16 @@ export function* watchLogin() {
 export function* watchLogout() {
   yield takeEvery('LOGOUT', logout);
 }
+export function* watchGetLocations() {
+  yield takeEvery('GET_ALL_LOCATIONS', getLocations)
+}
 
 export default function* homeSaga() {
   yield [
     watchSignup(),
     watchLogin(),
-    watchLogout()
+    watchLogout(),
+    watchGetLocations()
     // more sagas go here...
   ];
 }

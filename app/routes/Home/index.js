@@ -17,6 +17,14 @@ class Home extends Component {
     this.logout = this.logout.bind(this);
   }
 
+  componentWillMount() {
+    let { dispatch } = this.props;
+
+    dispatch({
+      type: 'GET_ALL_LOCATIONS'
+    })
+  }
+
   emailInput(e){
     let email = e.target.value;
     let { dispatch } = this.props;

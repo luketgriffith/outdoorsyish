@@ -9,7 +9,8 @@ const initialState = {
     email: '',
     password: ''
   },
-  user: {}
+  user: {},
+  locations: []
 };
 
 export default function leasesReducer(state=initialState, action={}) {
@@ -24,6 +25,8 @@ export default function leasesReducer(state=initialState, action={}) {
       return { ...state, login: { ...state.login, password: action.payload }};    
     case constants.LOGIN_SUCCESS: 
       return { ...state, user: action.user };
+    case constants.GET_LOCATIONS_SUCCESS:
+      return { ...state, locations: action.locations };  
     case constants.LOGOUT:
       return initialState;    
     default:
