@@ -108,12 +108,7 @@ class Home extends Component {
         <Logout
           logout={this.logout}
         />
-
-        <LocationList 
-          locations={this.props.locations}
-        />
         
-
       </div>)
   }
 }
@@ -123,8 +118,7 @@ function mapStateToProps(state) {
   return {
     signup: state.HomeReducer.signup,
     login: state.HomeReducer.login,
-    user: state.HomeReducer.user,
-    locations: state.HomeReducer.locations
+    user: state.HomeReducer.user
   }
 }
 

@@ -17,7 +17,7 @@ import Home from './routes/Home/index';
 import Profile from './routes/Profile/index';
 
 // Import global navigation components
-
+import Topbar from './routes/topbar';
 
 // Import Reducers
 import reducer from './reducer';
@@ -42,9 +42,10 @@ render(
       // onLoad={authenticateUser(store.dispatch)}
       // onUpdate={authenticateUser(store.dispatch)}>
       >
+      <Route component={Topbar}>
         <Route path="/" component={Home}/>
         <Route path="/profile/:profileId" component={Profile} />
-    
+      </Route>
     </Router>
   </Provider>,
 

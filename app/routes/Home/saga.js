@@ -12,6 +12,8 @@ function* signUp(action) {
       type: 'LOGIN_SUCCESS',
       user: profile
     });
+    yield localStorage.setItem('profile', profile._id);
+
     yield browserHistory.push('/profile/' + profile._id)
   } catch(err) {
     console.log('the error:', err);
@@ -28,6 +30,7 @@ function* login(action) {
       type: 'LOGIN_SUCCESS',
       user: profile
     });
+    yield localStorage.setItem('profile', profile._id);
     yield browserHistory.push('/profile/' + profile._id)
   } catch(err) {
     alert(err);
