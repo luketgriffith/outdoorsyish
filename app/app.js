@@ -7,7 +7,7 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 import createSagaMiddleware from 'redux-saga';
 
 // Authentication
-// import { authenticateUser, logOutUser } from './services/authentication';
+import { authenticateUser } from './services/authentication';
 
 // Include styles
 
