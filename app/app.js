@@ -15,7 +15,9 @@ import { authenticateUser } from './services/authentication';
 // Import containers for routing
 import Home from './routes/Home/index';
 import Profile from './routes/Profile/index';
-
+import LocationList from './routes/LocationList/index';
+import SingleLocation from './routes/SingleLocation/index';
+import LoggedIn from './routes/LoggedIn/index';
 // Import global navigation components
 import Topbar from './routes/topbar';
 
@@ -43,8 +45,8 @@ render(
       // onUpdate={authenticateUser(store.dispatch)}>
       >
       <Route component={Topbar}>
-        <Route path="/" component={Home}/>
-        <Route path="/profile/:profileId" component={Profile} />
+        <Route path="/" component={Profile} />
+        <Route path="/locations/:id" component={SingleLocation}/>
       </Route>
     </Router>
   </Provider>,

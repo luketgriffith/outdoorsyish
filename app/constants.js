@@ -1,1 +1,3 @@
 export const SET_USER = 'SET_USER';
+export const GET_SINGLE_LOCATION = 'GET_SINGLE_LOCATION'
+export const GET_ALL_LOCATIONS = 'GET_ALL_LOCATIONS';

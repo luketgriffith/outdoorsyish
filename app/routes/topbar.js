@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import MainView from './mainView';
 import config from '../../config/config';
-import Profile from './Profile/index'
+import Profile from './Profile/index';
+import LoggedIn from './LoggedIn/index';
 
 export default class Topbar extends Component{
   componentWillMount() {
@@ -29,9 +31,16 @@ export default class Topbar extends Component{
   }
 
   render() {
-  
+
     if (this.state.idToken) {
-      return (<Profile lock={this.lock} idToken={this.state.idToken} />);
+      // return (<Profile lock={this.lock} idToken={this.state.idToken} />
+      return (
+        <div>
+          <LoggedIn lock={this.lock} idToken={this.state.idToken} />
+          {this.props.children}
+      </div>)    
+
+
     } else {
       return (<MainView lock={this.lock} />);
     }

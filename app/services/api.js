@@ -47,5 +47,16 @@ export default {
           err ? reject(err) : resolve(res.body);
         });
     })
+  },
+
+  getSingleLocation: (locationId) => {
+    return new Promise((resolve, reject) => {
+      superagent
+        .get("http://localhost:5000/locations/" + locationId)
+        .set('Content-Type', 'application/json')
+        .end(function(err, res) {
+          err ? reject(err) : resolve(res.body);
+        });
+    })
   }
-}  
+}
