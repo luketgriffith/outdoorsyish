@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 class LoggedIn extends Component {
 
@@ -23,6 +24,9 @@ class LoggedIn extends Component {
     return(
       <div>
         <div>Welcome, {this.props.user.email}. Topbar with some navigation up here or something.</div>
+        <ul>
+          <li><Link to="/createLocation">Create Location</Link></li>
+        </ul>
         {this.props.children}
       </div>
       )
@@ -30,10 +34,10 @@ class LoggedIn extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
-    user: state.AuthReducer.userData,
-    locations: state.HomeReducer.locations
+    user: state.auth.userData,
+    locations: state.home.locations
 
   }
 }

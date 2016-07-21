@@ -18,6 +18,7 @@ import Profile from './routes/Profile/index';
 import LocationList from './routes/LocationList/index';
 import SingleLocation from './routes/SingleLocation/index';
 import LoggedIn from './routes/LoggedIn/index';
+import CreateLocation from './routes/CreateLocation/index';
 // Import global navigation components
 import Topbar from './routes/topbar';
 
@@ -47,6 +48,7 @@ render(
       <Route component={Topbar}>
         <Route path="/" component={Profile} />
         <Route path="/locations/:id" component={SingleLocation}/>
+        <Route path="/createLocation" component={CreateLocation} />
       </Route>
     </Router>
   </Provider>,

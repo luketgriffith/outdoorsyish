@@ -47,7 +47,7 @@ class Home extends Component {
   signUp(e){
     e.preventDefault();
     let { dispatch, signup } = this.props;
-    
+
     dispatch({
       type: 'SIGN_UP',
       payload: signup
@@ -75,7 +75,7 @@ class Home extends Component {
   login(e) {
     e.preventDefault();
     let { dispatch, login } = this.props;
-    
+
     dispatch({
       type: 'LOGIN',
       payload: login
@@ -89,11 +89,11 @@ class Home extends Component {
     })
   }
 
-  
+
   render() {
-    return( 
+    return(
       <div>Hello There Sir
-        <SignUp 
+        <SignUp
           emailInput={this.emailInput}
           passwordInput={this.passwordInput}
           signUp={this.signUp}
@@ -108,17 +108,17 @@ class Home extends Component {
         <Logout
           logout={this.logout}
         />
-        
+
       </div>)
   }
 }
 
 function mapStateToProps(state) {
-  console.log(state);
+  // console.log(state);
   return {
-    signup: state.HomeReducer.signup,
-    login: state.HomeReducer.login,
-    user: state.HomeReducer.user
+    signup: state.home.signup,
+    login: state.home.login,
+    user: state.home.user
   }
 }
 

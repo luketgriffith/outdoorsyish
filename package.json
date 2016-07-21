@@ -23,6 +23,7 @@
     "react-sidebar": "^2.1.1",
     "redux": "3.5.1",
     "redux-auth": "0.0.2",
+    "redux-form": "^5.3.1",
     "redux-saga": "^0.10.4",
     "superagent": "^1.8.3"
   },

@@ -58,5 +58,17 @@ export default {
           err ? reject(err) : resolve(res.body);
         });
     })
+  },
+
+  createLocation: (data) => {
+    return new Promise((resolve, reject) => {
+      superagent
+        .post('http://localhost:5000/locations')
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .end(function(err, res) {
+          err ? reject(err) : resolve(res.body);
+        });
+    })
   }
 }

@@ -26,8 +26,8 @@ class Profile extends Component {
 function mapStateToProps(state) {
   console.log(state);
   return {
-    user: state.AuthReducer.userData,
-    locations: state.HomeReducer.locations
+    user: state.auth.userData,
+    locations: state.home.locations
 
   }
 }

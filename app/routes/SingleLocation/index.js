@@ -28,7 +28,7 @@ class SingleLocation extends Component {
 function mapStateToProps(state) {
   console.log('single location state: ', state)
   return {
-    location: state.Location.location
+    location: state.location.location
   }
 }
 
