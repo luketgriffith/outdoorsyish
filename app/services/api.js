@@ -1,8 +1,20 @@
 import superagent from 'superagent';
 // import Utils from './utils';
-// import config from 'config';
+import config from '../../config/config';
 
 export default {
+  getUser: (idToken, userId) => {
+    return new Promise((resolve, reject) => {
+      superagent
+        .get('https://' + config.domain + '/api/v2/users/' + userId)
+        .set('Content-Type', 'application/json')
+        .set('Authorization', 'Bearer ' + idToken)
+        .end(function(err, res) {
+          err ? reject(err) : resolve(res.body);
+      });
+    })
+  },
+
   signUp: (user) => {
     return new Promise((resolve, reject) => {
       superagent

@@ -7,7 +7,7 @@ class LocationList extends Component {
     return(
         <ul>
           {this.props.locations.map((location) => {
-            return <li key={location._id}><Link to={"locations/" + location._id}>{location.location}</Link></li>
+            return <li key={location._id}><Link to={"locations/" + location._id}>{location.title}</Link></li>
           })}
         </ul>
       )

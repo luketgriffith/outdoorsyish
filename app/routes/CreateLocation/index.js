@@ -16,7 +16,8 @@ class CreateLocation extends Component {
     let data = {
       title: form.createLocation.title.value,
       description: form.createLocation.description.value,
-      imageUrl: form.createLocation.imageUrl.value
+      imageUrl: form.createLocation.imageUrl.value,
+      user: this.props.user.user_id
     }
     dispatch({
       type: 'CREATE_LOCATION',
